@@ -11,14 +11,14 @@ def get_grid_size() -> int:
         time.sleep(1.5)
         os.system("clear")
         grid_size = input('Grid size?: ')
-    return int(grid_size)                       #prompting the user for an input
+    return int(grid_size)                      
 
 
 def make_grid(grid_size: int):
     grid = []
     for _ in range(grid_size):
         grid.append(["🧱" for _ in range(grid_size)])
-    return grid                                         #returns a 2D list of walls "🧱"
+    return grid                                         
 
 
 def get_mouse():
@@ -31,7 +31,7 @@ def get_mouse_move():
     directions = ['U', 'D', 'L', 'R', 'UP', 'DOWN', 'LEFT', 'RIGHT']
     future_position = ""
     while future_position not in directions:
-        future_position = input('Move (D)-Up or (D)-Down or (R)-Right or (L)-Left?: ').upper()
+        future_position = input('Move (U)-Up or (D)-Down or (R)-Right or (L)-Left?: ').upper()
         if future_position == 'EXIT' or future_position == 'QUIT':
             print("SAD TO SEE YOU LEAVE")
             time.sleep(1)
@@ -61,7 +61,7 @@ def display(grid, cheese , cheese_count_list, mines_list, lives):
     for mines in mines_list:
         if tuple(mouse) == mines:
             lives.pop()
-    print(mines_list)
+    # print(mines_list)
     for x in lives:
         print(x, end = "")
     print()
@@ -90,25 +90,25 @@ def initialize_grid(grid: list, cheese_list, mouse, m):
 def updated_grid(grid, mouse, future_position, num_steps):    
     r, c = mouse
         
-    if future_position == 'U':                    
+    if (future_position == 'U' or future_position == 'UPPER'):                    
         if r - num_steps > 0:
             mouse[0] = r - num_steps
             grid[r ][c] = '🧱'
             grid[r - num_steps][c ] = '🐁'
 
-    elif future_position == 'D':                    
+    elif (future_position == 'D'or future_position == 'DOWN'):                    
         if r  + num_steps < len(grid) - 1:
             mouse[0] = r + num_steps
             grid[r ][c] = '🧱'
             grid[r + num_steps][c] = '🐁'
             
-    elif future_position == 'L': 
+    elif (future_position == 'L' or future_position == 'LEFT'): 
         if c - num_steps > 0: 
             mouse[1] = c - num_steps   
             grid[r ][c] = '🧱' 
             grid[r ][c - num_steps ] = '🐁'  
     
-    elif future_position == 'R':  
+    elif (future_position == 'R' or future_position == 'RIGHT'):  
         if c + num_steps < len(grid) - 1:  
             mouse[1] = c + num_steps
             grid[r ][c] = '🧱'     
