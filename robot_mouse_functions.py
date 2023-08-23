@@ -3,7 +3,12 @@ import time
 from random import randint
 
 
-def get_grid_size() -> int:
+'''
+Prompting the user to enter Grid size
+Validate the grid size entered
+return: the grid size in a string
+'''
+def get_grid_size() :
     grid_size = input('Grid size?: ')
     
     while not grid_size.isdigit():
@@ -14,6 +19,12 @@ def get_grid_size() -> int:
     return int(grid_size)                      
 
 
+'''
+Creating a Grid
+param: Taking the size of the grid
+return: grid of according 
+        to the size entered
+'''
 def make_grid(grid_size: int):
     grid = []
     for _ in range(grid_size):
@@ -21,12 +32,21 @@ def make_grid(grid_size: int):
     return grid                                         
 
 
+'''
+Randomly placing the mouse into it's initial position
+return: initial position of the mouse
+'''
 def get_mouse():
     mouse = [randint(1, len(grid)-2), randint(1, len(grid)-2)]
     print(f'initial {mouse}')  
     return mouse
 
 
+'''
+Determining where the mouse will be moving to
+return: future position -> Getting the position where the mouse will be moving to
+        num_steps       -> The number of steps the mouse will take
+'''
 def get_mouse_move():
     directions = ['U', 'D', 'L', 'R', 'UP', 'DOWN', 'LEFT', 'RIGHT']
     future_position = ""
