@@ -6,7 +6,7 @@ and collect cheese as RoboMouse in this charming adventure game.
 ![mouseAndCheese](https://github.com/Nombuso16/Robot_Mouse_Game/assets/101812346/cd510540-29d0-4fb6-b956-d4439f647f2f)
 
 # Description
-Embark on an exciting journey in "Cheese Quest: RoboMouse Adventures,
+Embark on an exciting journey in "Cheese Quest: RoboMouse Adventures",
 
 a captivating and whimsical game where you step into the paws of a 
 
