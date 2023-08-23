@@ -28,7 +28,7 @@ def get_mouse():
 
 
 def get_mouse_move():
-    directions = ['U', 'D', 'L', 'R']
+    directions = ['U', 'D', 'L', 'R', 'UP', 'DOWN', 'LEFT', 'RIGHT']
     future_position = ""
     while future_position not in directions:
         future_position = input('Move (D)-Up or (D)-Down or (R)-Right or (L)-Left?: ').upper()
